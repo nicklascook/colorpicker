@@ -1,0 +1,116 @@
+/* Media Query Mixins */
+html, body {
+  margin: 0;
+  padding: 0; }
+
+.headerbox {
+  background-color: #446cb3;
+  margin-top: -10px;
+  height: 80px;
+  border-bottom: 5px solid #3f6099; }
+  .headerbox h1 {
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 2.8em;
+    margin-top: 7px; }
+
+.btn, .pagebreakrow button, .dropdown button, .dropdown button:focus, .active {
+  background-color: #3f6099;
+  color: #fff;
+  border-radius: 0px;
+  width: 170px;
+  border: none;
+  padding: 1px;
+  margin: auto;
+  display: inline-block; }
+  @media only screen and (max-width: 700px) {
+    .btn, .pagebreakrow button, .dropdown button, .dropdown button:focus, .active {
+      width: 130px; } }
+  @media only screen and (max-width: 480px) {
+    .btn, .pagebreakrow button, .dropdown button, .dropdown button:focus, .active {
+      width: 100px; } }
+
+.btn:hover, .pagebreakrow button:hover, .dropdown button:hover, .activebtn, .btn:focus, .pagebreakrow button:focus, .dropdown button:focus {
+  background-color: #fff;
+  color: #446cb3;
+  border-bottom: 1px solid #3f6099;
+  border-left: 1px solid #3f6099;
+  border-right: 1px solid #3f6099; }
+
+.btn:active, .pagebreakrow button:active, .dropdown button:active {
+  background-color: #fff; }
+
+.buttonrow {
+  display: block;
+  margin: 0 auto; }
+
+.icon {
+  font-size: 1em; }
+
+.pagebreak {
+  background-color: #3f6099;
+  height: 10px;
+  width: 100%;
+  margin-top: 20vh; }
+
+.pagebreakrow {
+  margin-top: -47px; }
+  .pagebreakrow button:hover, .pagebreakrow button:focus {
+    border: 1px solid #3f6099; }
+
+.dropdown {
+  margin-top: 10px;
+  list-style: none;
+  display: none;
+  position: absolute; }
+  .dropdown button, .dropdown button:focus {
+    position: relative;
+    margin-top: -10px;
+    margin-bottom: -3px;
+    background-color: #f9fafd;
+    color: #3f6099;
+    border: 1px solid #9bb1d6; }
+  .dropdown button:hover {
+    border: 1px solid #304975; }
+  .dropdown li {
+    display: inline-block; }
+
+#typedropdown {
+  position: absolute; }
+
+.show {
+  display: inline-block; }
+
+.hide {
+  opacity: 0; }
+
+.card {
+  position: relative;
+  height: 250px;
+  background-color: white;
+  width: 90%;
+  margin-left: 5%;
+  border: 1px solid #3f6099;
+  overflow: hidden; }
+
+.cardfooter, .cardheader {
+  position: absolute;
+  height: 20px;
+  bottom: 0;
+  width: 100%;
+  background-color: #bfcde5; }
+
+.cardheader {
+  top: 0;
+  height: 40px; }
+
+.primarycolor {
+  height: 100%;
+  width: 10px;
+  background-color: black;
+  z-index: 100;
+  position: absolute; }
+
+.cardrow {
+  margin-top: 15vh; }

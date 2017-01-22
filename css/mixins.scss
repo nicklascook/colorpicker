@@ -1,0 +1,26 @@
+/* Media Query Mixins */
+@mixin bp-xs{
+  @media only screen and (max-width: 480px){
+    @content;
+  }
+}
+@mixin bp-sm{
+  @media only screen and (max-width: 700px){
+    @content;
+  }
+}
+@mixin bp-md{
+  @media only screen and (max-width: 800px){
+    @content;
+  }
+}
+@mixin bp-lg{
+  @media only screen and (min-width: 900px){
+    @content;
+  }
+}
+@mixin bp-xl{
+  @media only screen and (min-width: 1100px){
+    @content;
+  }
+}
