@@ -7,30 +7,32 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.4/milligram.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="css/_fonts.css">
 
-        <!--[if lt IE 9]>
-            <script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
-        <![endif]-->
 
         <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
     </head>
     <body>
+  <div class="container">
+
+
+
 
         <div class="row">
           <div class="column headerbox">
-            <h1>Colorpick</h1>
+            <h1>Colorpick<span class="icon-palette"></span></h1>
           </div>
         </div>
 
         <div class="btn-wrapper">
           <div class="row">
             <div class="buttonrow">
-              <button class="btn" id="themesbtn">Themes</button>
+              <button class="btn" id="themesbtn">Themes <span class="icon-photo_library"></span></button>
               <button class="btn">Top Rated <span class="icon-favorite"></span></button>
-              <button class="btn" id="typebtn">Type</button>
+              <button class="btn" id="typebtn">Type <span class="icon-compare"></span></button>
+              <br class="clearFloat">
 
               <ul class="dropdown" id="themesdropdown">
                 <li><button class="">Warm</button></li>
@@ -47,47 +49,7 @@
         </div>
 
 
-        <div class="row cardrow">
-          <div class="column">
-            <div class="card">
-              <div class="cardheader"></div>
-              <div class="cardfooter"></div>
-              <div class="primarycolour"></div>
-              <div class="secondarycolour"></div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="cardheader"></div>
-              <div class="cardfooter"></div>
-              <div class="primarycolour"></div>
-              <div class="secondarycolour"></div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="cardheader"></div>
-              <div class="cardfooter"></div>
-              <div class="primarycolour"></div>
-              <div class="secondarycolour"></div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="cardheader"></div>
-              <div class="cardfooter"></div>
-              <div class="primarycolour"></div>
-              <div class="secondarycolour"></div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="cardheader"></div>
-              <div class="cardfooter"></div>
-              <div class="primarycolour"></div>
-              <div class="secondarycolour"></div>
-            </div>
-          </div>
+        <div class="row cardrow" id="cardrow">
         </div>
 
 
@@ -105,8 +67,7 @@
           </div>
         </div>
 
-
-
-        <script src="js/main.js"></script>
-    </body>
+    </div>
+    <script src="js/main.js"></script>
+</body>
 </html>

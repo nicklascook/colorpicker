@@ -36,3 +36,12 @@
 .icon-favorite:before {
   content: "\e87d";
 }
+.icon-brush:before {
+  content: "\e3ae";
+}
+.icon-compare:before {
+  content: "\e3b9";
+}
+.icon-photo_library:before {
+  content: "\e413";
+}
