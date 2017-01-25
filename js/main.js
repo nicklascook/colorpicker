@@ -41,7 +41,7 @@ typebutton.onclick= function(event){
 
 // ========================================== Palette Cards ===============================================================
 
-function appendPaletteCard(primCol, secCol, shadeCol, accentCol){ // Takes each of the necessary colours and generates a palette card
+function appendPaletteCard(primCol, darkPrimCol, lightPrimCol, accentCol, tagName){ // Takes each of the necessary colours and generates a palette card
   // Create the wrapper, class of 'cardwrapper'
   var paletteWrapper = document.createElement('div');
   paletteWrapper.classList.add("cardwrapper");
@@ -51,21 +51,39 @@ function appendPaletteCard(primCol, secCol, shadeCol, accentCol){ // Takes each 
   paletteCard.classList.add("card");
   paletteWrapper.appendChild(paletteCard);
 
+  // Add the top wrapper:
+  var topWrapper = document.createElement('div');
+  topWrapper.classList.add("topwrapper");
+  paletteCard.appendChild(topWrapper);
+  // Add the tags:
+  var tag = document.createElement('div');
+  tag.classList.add("tag");
+  tag.innerHTML = tagName;
+  topWrapper.appendChild(tag);
+  // Add the upvote button
+  var upvote = document.createElement('div');
+  upvote.classList.add("upvote");
+  var upvoteIcon = document.createElement('span');
+  upvoteIcon.classList.add("icon-favorite");
+  upvote.appendChild(upvoteIcon);
+  topWrapper.appendChild(upvote);
+
+
   // Create primary, secondary, shades 1 and 2
   var palettePrimary = document.createElement('div');
   palettePrimary.classList.add("primarycolor");
   palettePrimary.style.backgroundColor = primCol; // Change background color to primCol
   paletteCard.appendChild(palettePrimary);
   var paletteSecondary = document.createElement('div');
-  paletteSecondary.classList.add("secondarycolor");
-  paletteSecondary.style.backgroundColor = secCol; // Change background color to secCol
+  paletteSecondary.classList.add("darkprimarycolor");
+  paletteSecondary.style.backgroundColor = darkPrimCol; // Change background color to darkPrimCol
   paletteCard.appendChild(paletteSecondary);
   var paletteShade = document.createElement('div');
-  paletteShade.classList.add("shadecolor");
-  paletteShade.style.backgroundColor = shadeCol; // Change background color to shadeCol
+  paletteShade.classList.add("lightprimarycolor");
+  paletteShade.style.backgroundColor = lightPrimCol; // Change background color to lightPrimCol
   paletteCard.appendChild(paletteShade);
   var paletteAccent = document.createElement('div');
-  paletteAccent.classList.add("shadecolor2");
+  paletteAccent.classList.add("accentcolor");
   paletteAccent.style.backgroundColor = accentCol; // Change background color to accentCol
   paletteCard.appendChild(paletteAccent);
   document.getElementById("cardrow").appendChild(paletteWrapper);
@@ -78,45 +96,50 @@ function appendPaletteCard(primCol, secCol, shadeCol, accentCol){ // Takes each 
 var paletteSchemes = [
   {
     "primCol": "#c9c9c9",
-    "secCol": "#e3e3e3",
-    "shadeCol": "#89bdd3",
-    "accentCol": "#9ad3de"
+    "darkPrimCol": "#e3e3e3",
+    "lightPrimCol": "#89bdd3",
+    "accentCol": "#9ad3de",
+    "tag": "material"
   },
   {
     "primCol": "#dddfd4",
-    "secCol": "#fae596",
-    "shadeCol": "#173e43",
-    "accentCol": "#3fb0ac"
+    "darkPrimCol": "#fae596",
+    "lightPrimCol": "#173e43",
+    "accentCol": "#3fb0ac",
+    "tag": "material"
   },
   {
     "primCol": "#feffff",
-    "secCol": "#98dafc",
-    "shadeCol": "#312c32",
-    "accentCol": "#daad86"
+    "darkPrimCol": "#98dafc",
+    "lightPrimCol": "#312c32",
+    "accentCol": "#daad86",
+    "tag": "material"
   },
   {
     "primCol": "#6534ff",
-    "secCol": "#62bcfa",
-    "shadeCol": "#bbc4ef",
-    "accentCol": "#fccdd3"
+    "darkPrimCol": "#62bcfa",
+    "lightPrimCol": "#bbc4ef",
+    "accentCol": "#fccdd3",
+    "tag": "material"
   },
   {
     "primCol": "#e6af4b",
-    "secCol": "#e05038",
-    "shadeCol": "#334431",
-    "accentCol": "#f2cbbc"
+    "darkPrimCol": "#e05038",
+    "lightPrimCol": "#334431",
+    "accentCol": "#f2cbbc",
+    "tag": "material"
   },
   {
     "primCol": "#252839",
-    "secCol": "#677077",
-    "shadeCol": "#f2b632",
-    "accentCol": "#b5b5b7"
+    "darkPrimCol": "#677077",
+    "lightPrimCol": "#f2b632",
+    "accentCol": "#b5b5b7",
+    "tag": "material"
   },
 ]
 function createPaletteCards(){
   for(i=0; i<paletteSchemes.length; i++){
-    console.log(i);
-    appendPaletteCard(paletteSchemes[i].primCol, paletteSchemes[i].secCol,paletteSchemes[i].shadeCol, paletteSchemes[i].accentCol)
+    appendPaletteCard(paletteSchemes[i].primCol, paletteSchemes[i].darkPrimCol,paletteSchemes[i].lightPrimCol, paletteSchemes[i].accentCol, paletteSchemes[i].tag)
   }
 }
 

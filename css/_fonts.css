@@ -45,3 +45,9 @@
 .icon-photo_library:before {
   content: "\e413";
 }
+.icon-navigate_before:before {
+  content: "\e408";
+}
+.icon-navigate_next:before {
+  content: "\e409";
+}

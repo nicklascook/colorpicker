@@ -5,23 +5,25 @@ html, body {
   padding: 0;
   font-family: 'Roboto', sans-serif; }
 
+a {
+  text-decoration: none; }
+
 .headerbox {
-  background-color: #9a4053;
+  background-color: #3f51b5;
   margin-top: -10px;
   height: 80px;
-  border-bottom: 5px solid #f2545b; }
+  border-bottom: 5px solid #303f9f; }
   .headerbox h1 {
-    color: #fff;
+    color: #fed351;
     text-align: center;
     font-size: 2.8em;
     padding-top: 11px;
     margin-top: 10px;
-    font-weight: 300;
-    letter-spacing: -.1rem; }
+    letter-spacing: .1rem; }
 
 .btn, .pagebreakrow button, .dropdown button, .dropdown button:focus, .active {
   background-color: #fff;
-  color: #f2545b;
+  color: #303f9f;
   border-radius: 0px;
   width: 32.5%;
   margin-left: -2px;
@@ -40,9 +42,9 @@ html, body {
   margin: 0 auto;
   display: block;
   float: right;
-  border-bottom: 1px solid #f2545b;
-  border-left: 1px solid #f2545b;
-  border-right: 1px solid #f2545b; }
+  border-bottom: 1px solid #303f9f;
+  border-left: 1px solid #303f9f;
+  border-right: 1px solid #303f9f; }
   @media only screen and (max-width: 700px) {
     .btn, .pagebreakrow button, .dropdown button, .dropdown button:focus, .active {
       width: 130px; } }
@@ -52,11 +54,11 @@ html, body {
 
 .btn:hover, .pagebreakrow button:hover, .dropdown button:hover {
   background-color: #fff;
-  color: #a10c13; }
+  color: #171e44; }
 
 .btn:active, .pagebreakrow button:active, .dropdown button:active, .btn:focus, .pagebreakrow button:focus, .dropdown button:focus, .activebtn {
-  background-color: #f2545b;
-  color: #fff;
+  background-color: #303f9f;
+  color: white;
   outline: none; }
 
 .buttonrow {
@@ -70,7 +72,7 @@ html, body {
   clear: both; }
 
 .pagebreak {
-  background-color: #f2545b;
+  background-color: #303f9f;
   height: 10px;
   width: 100%;
   margin-top: 20vh; }
@@ -78,7 +80,7 @@ html, body {
 .pagebreakrow {
   margin-top: -52px; }
   .pagebreakrow button {
-    border: 1px solid #f2545b; }
+    border: 1px solid #303f9f; }
 
 .dropdown {
   margin-top: 10px;
@@ -90,11 +92,11 @@ html, body {
     position: relative;
     margin-top: -10px;
     margin-bottom: -3px;
-    background-color: #f4e5e8;
-    color: #f2545b;
-    border: 1px solid #f68388; }
+    background-color: #f7f8fc;
+    color: #303f9f;
+    border: 1px solid #3d50c5; }
   .dropdown button:hover {
-    border: 1px solid #ee252e; }
+    border: 1px solid #242f78; }
   .dropdown li {
     display: block;
     float: left; }
@@ -132,7 +134,7 @@ ul {
   border: 1px solid #bed4ad;
   overflow: auto; }
 
-.primarycolor, .secondarycolor, .shadecolor, .shadecolor2 {
+.primarycolor, .darkprimarycolor, .lightprimarycolor, .accentcolor {
   position: absolute;
   height: 80px;
   margin-left: 5%;
@@ -141,17 +143,17 @@ ul {
   top: 60px;
   background-color: #088c25; }
 
-.secondarycolor {
+.darkprimarycolor {
   top: 140px;
   height: 55px;
   background-color: #83ba7c; }
 
-.shadecolor {
+.lightprimarycolor {
   top: 195px;
   height: 35px;
   background-color: #c7e8bf; }
 
-.shadecolor2 {
+.accentcolor {
   top: 230px;
   height: 30px;
   background-color: #97e9ec; }
@@ -166,3 +168,51 @@ ul {
   margin-top: 20%;
   margin-right: 10px;
   float: right; }
+
+.tag {
+  text-transform: uppercase;
+  background-color: #d2d2d2;
+  color: #757575;
+  border-radius: 100px;
+  width: 60px;
+  font-size: 0.7em;
+  padding: 5px;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 10px;
+  float: left;
+  cursor: pointer; }
+
+.tag:hover {
+  background-color: #c5c5c5;
+  color: #f4f4f4;
+  border: 1px solid #fed351;
+  padding: 4px; }
+
+.upvote {
+  float: right;
+  color: #757575;
+  margin-right: 15px;
+  margin-top: 20px;
+  font-size: 1.3em;
+  cursor: pointer; }
+
+.upvote:hover {
+  color: #fed351;
+  font-size: 1.5em;
+  transition: 0.5s all; }
+
+.left-scroll, .right-scroll {
+  color: white;
+  font-size: 4.5em;
+  position: absolute;
+  z-index: 100;
+  margin-top: 110px;
+  text-shadow: -1px 0 #303f9f, 0 1px #303f9f, 1px 0 #303f9f, 0 -1px #303f9f; }
+
+.left-scroll:hover, .right-scroll:hover {
+  color: #3f51b5;
+  text-shadow: -1px 0 #303f9f, 0 1px #303f9f, 1px 0 #303f9f, 0 -1px #303f9f; }
+
+.right-scroll {
+  right: 0; }

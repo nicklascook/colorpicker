@@ -1,7 +1,16 @@
 // Colour variables
-$primaryColor: #9a4053;
-$secondaryColor: #F2545B;
+$primaryColor: #3F51B5;
+$darkPrimaryColor: #303F9F;
+$lightPrimaryColor: #C5CAE9;
+$accentColor: #fed351;
 $lightshade: #F3F7F0;
+
+$textIcons: #FFFFFF;
+$primaryText: #212121;
+$secondaryText: #757575;
+
+$tagColor: #d2d2d2;
+
 
 // import mixins
 @import 'mixins';
@@ -13,23 +22,25 @@ html,body{
   font-family: 'Roboto', sans-serif;
 }
 
+a{
+  text-decoration: none;
+}
 
 
 .headerbox{
   background-color: $primaryColor;
   margin-top: -10px;
   height: 80px;
-  border-bottom: 5px solid $secondaryColor;
+  border-bottom: 5px solid $darkPrimaryColor;
 
 
   h1 {
-    color: #fff;
+    color: $accentColor;
     text-align: center;
     font-size: 2.8em;
     padding-top: 11px;
     margin-top: 10px;
-    font-weight: 300;
-    letter-spacing: -.1rem;
+    letter-spacing: .1rem;
   };
 
 };
@@ -39,7 +50,7 @@ html,body{
 
 .btn, .active{
   background-color: #fff;
-  color: $secondaryColor;
+  color: $darkPrimaryColor;
   border-radius: 0px;
   width: 32.5%;
   margin-left: -2px;
@@ -59,9 +70,9 @@ html,body{
   display: block;
   float: right;
 
-  border-bottom: 1px solid $secondaryColor;
-  border-left: 1px solid $secondaryColor;
-  border-right: 1px solid $secondaryColor;
+  border-bottom: 1px solid $darkPrimaryColor;
+  border-left: 1px solid $darkPrimaryColor;
+  border-right: 1px solid $darkPrimaryColor;
   @include bp-sm{
     width: 130px;
   }
@@ -75,13 +86,13 @@ html,body{
 
 .btn:hover{
   background-color: #fff;
-  color: darken($secondaryColor,30%);
+  color: darken($primaryColor,30%);
 };
 
 
 .btn:active, .btn:focus, .activebtn{
-  background-color: $secondaryColor;
-  color: #fff;
+  background-color: $darkPrimaryColor;
+  color: $textIcons;
   outline: none;
 }
 
@@ -99,7 +110,7 @@ html,body{
 }
 
 .pagebreak{
-  background-color: $secondaryColor;
+  background-color: $darkPrimaryColor;
   height: 10px;
   width: 100%;
   margin-top: 20vh;
@@ -110,7 +121,7 @@ html,body{
 
   button{
     @extend .btn;
-    border: 1px solid $secondaryColor;
+    border: 1px solid $darkPrimaryColor;
   }
 }
 
@@ -129,11 +140,11 @@ html,body{
     margin-top: -10px;
     margin-bottom: -3px;
     background-color: lighten($primaryColor,50%);
-    color: $secondaryColor;
-    border: 1px solid lighten($secondaryColor, 10%);
+    color: $darkPrimaryColor;
+    border: 1px solid lighten($darkPrimaryColor, 10%);
   }
   button:hover{
-    border: 1px solid darken($secondaryColor,10%);
+    border: 1px solid darken($darkPrimaryColor,10%);
   }
 
   li{
@@ -189,19 +200,19 @@ ul {
   background-color: rgb(8, 140, 37);
 
 }
-.secondarycolor{
+.darkprimarycolor{
   @extend .primarycolor;
   top: 140px;
   height: 55px;
   background-color: #83ba7c;
 }
-.shadecolor{
+.lightprimarycolor{
   @extend .primarycolor;
   top:195px;
   height: 35px;
   background-color: #c7e8bf;
 }
-.shadecolor2{
+.accentcolor{
   @extend .primarycolor;
   top:230px;
   height: 30px;
@@ -220,4 +231,57 @@ ul {
   margin-top: 20%;
   margin-right: 10px;
   float: right;
+}
+
+
+.tag{
+  text-transform: uppercase;
+  background-color: $tagColor;
+  color: $secondaryText;
+  border-radius: 100px;
+  width: 60px;
+  font-size: 0.7em;
+  padding: 5px;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 10px;
+  float: left;
+  cursor: pointer;
+}
+.tag:hover{
+  background-color: darken($tagColor,5%);
+  color: lighten($secondaryText, 50%);
+  border: 1px solid $accentColor;
+  padding: 4px;
+}
+.upvote{
+  float: right;
+  color: $secondaryText;
+  margin-right: 15px;
+  margin-top: 20px;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+.upvote:hover{
+  color: $accentColor;
+  font-size: 1.5em;
+  transition: 0.5s all;
+}
+
+.left-scroll{
+  color: white;
+  font-size: 4.5em;
+  position: absolute;
+  z-index: 100;
+  margin-top: 110px;
+  text-shadow: -1px 0 $darkPrimaryColor,0 1px $darkPrimaryColor,1px 0 $darkPrimaryColor,0 -1px $darkPrimaryColor;
+}
+.left-scroll:hover{
+  color: $primaryColor;
+  text-shadow: -1px 0 $darkPrimaryColor,0 1px $darkPrimaryColor,1px 0 $darkPrimaryColor,0 -1px $darkPrimaryColor;
+}
+
+.right-scroll{
+  @extend .left-scroll;
+  right: 0;
 }
