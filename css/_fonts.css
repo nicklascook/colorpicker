@@ -51,3 +51,45 @@
 .icon-navigate_next:before {
   content: "\e409";
 }
+.icon-facebook:before {
+  content: "\e901";
+}
+.icon-twitter:before {
+  content: "\e900";
+}
+.icon-instagram:before {
+  content: "\e902";
+}
+.icon-phone:before {
+  content: "\e0cd";
+}
+.icon-mail_outline:before {
+  content: "\e0e1";
+}
+.icon-explore:before {
+  content: "\e87a";
+}
+.icon-filter_drama:before {
+  content: "\e3dd";
+}
+.icon-local_florist:before {
+  content: "\e545";
+}
+.icon-trending_up:before {
+  content: "\e8e5";
+}
+.icon-menu:before {
+  content: "\e5d2";
+}
+.icon-arrow_forward:before {
+  content: "\e5c8";
+}
+.icon-shopping-cart:before {
+  content: "\e903";
+}
+.icon-type:before {
+  content: "\e904";
+}
+.icon-office:before {
+  content: "\e905";
+}

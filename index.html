@@ -3,13 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>ColorPick</title>
+        <title>Colorpick</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto|Lato" rel="stylesheet">
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="css/_fonts.css">
+        <link rel="icon" href="img/favicon.png">
 
 
         <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
@@ -22,7 +23,8 @@
 
         <div class="row">
           <div class="column headerbox">
-            <h1>Colorpick<span class="icon-palette"></span></h1>
+            <h1>Colorpick <img src="img/logo.png" alt="logo" class="logo"> </h1>
+            <div class="headershapes"></div><div class="headershapes headershapes2"></div>
           </div>
         </div>
 
@@ -30,7 +32,7 @@
           <div class="row">
             <div class="buttonrow">
               <button class="btn" id="themesbtn">Themes <span class="icon-photo_library"></span></button>
-              <button class="btn">Top Rated <span class="icon-favorite"></span></button>
+              <button class="btn" id="previewbtn">Preview <span class="icon-settings"></span></button>
               <button class="btn" id="typebtn">Type <span class="icon-compare"></span></button>
               <br class="clearFloat">
 
@@ -40,23 +42,65 @@
                 <li><button class="">Dark</button></li>
               </ul>
               <ul class="dropdown" id="typedropdown">
-                <li><button class="">Monochromatic (1)</button></li>
-                <li><button class="">Adjacent (3)</button></li>
-                <li><button class="">Triad (3)</button></li>
+                <li><button id="material">Material</button></li>
+                <li><button id="metro">Metro</button></li>
+                <li><button id="flat">Monochrome</button></li>
               </ul>
             </div>
           </div>
         </div>
 
+        <div class="modal">
+          <div class="modalcontent">
+            <div class="row">
+              <h2>Preview Settings</h2>
+              <form action="">
+                  <div class="formwrap">
+                    <img class="googlefonts" src="img/google_fonts_logo-1.png" alt="Google Fonts Logo">
+                    <input type="text" id="font" name="" placeholder="Google Font Name">
+                    <p class="fontsuggest">Example: Ubuntu, Montserrat, Sansita</p>
+                  </div>
+              </form>
+              <div class="buttonwrap">
+                <button class="submitfont"><span>Import</span> <span class="icon-arrow_forward"></span></button>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="modaltitle">
+                <h2>Preview Template</h2>
+              </div>
+            </div>
+            <div class="row presetrow">
+              <div class="presetwrapper">
+                <div class="presetlogo">
+                  <span class="icon-office"></span>
+                </div>
+                <h4 class="presettext">BUSINESS</h4>
+              </div>
+              <div class="presetwrapper">
+                <div class="presetlogo">
+                  <span class="icon-type"></span>
+                </div>
+                <h4 class="presettext">BLOG</h4>
+              </div>
+              <div class="presetwrapper">
+                <div class="presetlogo">
+                  <span class="icon-shopping-cart"></span>
+                </div>
+                <h4 class="presettext">ONLINE STORE</h4>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
 
         <div class="row cardrow" id="cardrow">
-
-            <span class="icon-navigate_before left-scroll"></span>
-
-
-
-            <span class="icon-navigate_next right-scroll"></span>
-
+            <span id="left-scroll" class="icon-navigate_before left-scroll"></span>
+            <span id="right-scroll" class="icon-navigate_next right-scroll"></span>
         </div>
 
 
@@ -66,15 +110,86 @@
           <div class="pagebreak">
           </div>
         </div>
-        <div class="row">
-          <div class="buttonrow pagebreakrow">
-            <button class="">Configure <span class="icon-palette"></span></button>
-            <button class="">Preview <span class="icon-settings"></span></button>
-            <button class="">Export <span class="icon-content_copy"></span></button>
+
+
+        <div class="preview">
+          <div class="row">
+            <a><h1>Sample Business</h1></a>
+            <div class="previewnav">
+              <a><h3 class="previewnav-active">Home</h3></a>
+              <a><h3>Services</h3></a>
+              <a><h3>Contact</h3></a>
+              <span class="icon-menu"></span>
+            </div>
+          </div>
+
+          <div class="row previewheader">
+            <div class="row">
+              <h1>Landing Page</h1>
+              <h2>A template by Colorpicker</h2>
+              <hr>
+              <button><span class="icon-facebook"></span> Facebook</button>
+              <button><span class="icon-twitter"></span> Twitter</button>
+              <button><span class="icon-instagram"></span> Instagram</button>
+            </div>
+          </div>
+
+          <div class="row previewbody">
+            <div class="col-8">
+              <h4>What We Do</h4>
+              <p>Introduce the visitor to the business using clear, informative text. Use <span class="highlight">well-targeted</span> keywords within your sentences to make sure search engines can find the business. <br><br>
+                 Design and layout inspired and partly copied from Startbootstrap. Images from Pexels. Original font is 'Lato' from Google Fonts.</p>
+              <div class="btnwrapper">
+                <button class="previewbtn">Call To Action!</button>
+              </div>
+
+            </div>
+            <div class="col-4">
+              <h4>Contact Us</h4>
+              <p>
+                <ul> <strong class="highlight">Sample Business</strong>
+                  <li>762 Melvindoo Place</li>
+                  <li>Beverly Hills, CA 90210</li>
+                </ul>
+                <ul>
+                  <li><span class="icon-phone"></span>  (123) 456-7890</li>
+                  <li><span class="icon-mail_outline"></span>   name@example.com</li>
+                </ul>
+              </p>
+            </div>
+
+          </div>
+          <hr style="width:80%; margin-top:50px;">
+          <div class="row previewcontent">
+            <div class="col-quarter">
+              <span class="icon-explore"></span>
+              <h2>Marketing Box #1</h2>
+              <p>These marketing boxes are a great place to put some information.</p>
+            </div>
+            <div class="col-quarter">
+              <span class="icon-filter_drama"></span>
+              <h2>Marketing Box #2</h2>
+              <p>These marketing boxes are a great place to put some information.</p>
+            </div>
+            <div class="col-quarter">
+              <span class="icon-local_florist"></span>
+              <h2>Marketing Box #3</h2>
+              <p>These marketing boxes are a great place to put some information.</p>
+            </div>
+            <div class="col-quarter">
+              <span class="icon-trending_up"></span>
+              <h2>Marketing Box #4</h2>
+              <p>These marketing boxes are a great place to put some information.</p>
+            </div>
+          </div>
+          <hr style="width:80%; margin-top:50px;">
+          <div class="row previewfooter">
+            <p>Copyright (c) 2016 Copyright Holder All Rights Reserved.</p>
           </div>
         </div>
 
     </div>
     <script src="js/main.js"></script>
+    <script src="js/jscolor.min.js"></script>
 </body>
 </html>
