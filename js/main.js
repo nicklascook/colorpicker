@@ -1,65 +1,18 @@
-// ========================================== DROP DOWN BUTTONS ===============================================================
+// ========================================== MENU FILTER BUTTONS ===============================================================
 
-// show dropdown on themes button
-var themesbutton = document.getElementById("themesbtn");
-themesbutton.onclick= function(event){
-  var dropdown = document.getElementById("themesdropdown");
-  themesbutton.classList.toggle("activebtn");
-  dropdown.style.display = "inline-block";
+var materialBtn = document.getElementById("materialbtn");
+var monochromeBtn = document.getElementById("monochromebtn");
 
-  if (themesbutton.classList.contains("activebtn") === false){ // if button is currently not selected
-    document.body.addEventListener("click", function () { // if user clicks anywhere that is not the button
-        dropdown.style.display = "none";
-        themesbutton.classList.remove("activebtn");
-    }, false);
-    themesbutton.addEventListener("click", function (ev) {
-      themesbutton.classList.toggle("activebtn");
-        ev.stopPropagation();
-    }, false);
-  };
+materialBtn.onclick= function(event){
+  reloadCardsFiltered("material");
 };
-// Themes Drop down button functionality:
-var materialBtn = document.getElementById("material");
-var metroBtn = document.getElementById("metro");
-var flatBtn = document.getElementById("flat");
-// show dropdown on type button
-var typebutton = document.getElementById("typebtn");
-typebutton.onclick= function(event){
-  var dropdown = document.getElementById("typedropdown");
-  typebutton.classList.toggle("activebtn");
-  dropdown.style.display = "inline-block";
 
-  if (typebutton.classList.contains("activebtn") === false){ // if button is currently not selected
-    document.body.addEventListener("click", function () { // if user clicks anywhere that is not the button
-        dropdown.style.display = "none";
-        typebutton.classList.remove("activebtn");
-    }, false);
-    // reclicking type button
-    typebutton.addEventListener("click", function (ev) {
-      typebutton.classList.toggle("activebtn");
-        ev.stopPropagation();
-    }, false);
-    // clicking material type
-    materialBtn.addEventListener("click", function () {
-      reloadCardsFiltered("material")
-    }, false);
-    // clicking metro type
-    metroBtn.addEventListener("click", function () {
-      reloadCardsFiltered("metro")
-    }, false);
-    // clicking flat type
-    flatBtn.addEventListener("click", function () {
-      reloadCardsFiltered("monochrome")
-    }, false);
-  };
+monochromeBtn.onclick= function(event){
+  reloadCardsFiltered("monochrome");
 };
 
 
-
-
-
-
-// ========================================== /DROP DOWN BUTTONS ===============================================================
+// ========================================== /MENU FILTER BUTTONS ===============================================================
 //FADE IN animation
 function fadeIn(el) {
   el.style.opacity = 0;
@@ -202,69 +155,6 @@ var paletteSchemes = [
     "lightPrimCol": "#4DB6AC",
     "accentCol": "#FFC400",
     "tag": "material"
-  },
-  {
-    "primCol": "#00a300",
-    "darkPrimCol": "#1e7145",
-    "lightPrimCol": "#18EF18",
-    "accentCol": "#A30051",
-    "tag": "metro"
-  },
-  {
-    "primCol": "#FF0097",
-    "darkPrimCol": "#B2006A",
-    "lightPrimCol": "#FF19A1",
-    "accentCol": "#10FF00",
-    "tag": "metro"
-  },
-  {
-    "primCol": "#9f00a7",
-    "darkPrimCol": "#56005A",
-    "lightPrimCol": "#E918F3",
-    "accentCol": "#44A700",
-    "tag": "metro"
-  },
-  {
-    "primCol": "#00aba9",
-    "darkPrimCol": "#005E5D",
-    "lightPrimCol": "#19F7F5",
-    "accentCol": "#AB3E00",
-    "tag": "metro"
-  },
-  {
-    "primCol": "#2d89ef",
-    "darkPrimCol": "#0F55A2",
-    "lightPrimCol": "#4AA0FF",
-    "accentCol": "#EFA92D",
-    "tag": "metro"
-  },
-  {
-    "primCol": "#2b5797",
-    "darkPrimCol": "#0E274A",
-    "lightPrimCol": "#5891E3",
-    "accentCol": "#97732B",
-    "tag": "metro"
-  },
-  {
-    "primCol": "#ffc40d",
-    "darkPrimCol": "#B28805",
-    "lightPrimCol": "#FFCA26",
-    "accentCol": "#0D34FF",
-    "tag": "metro"
-  },
-  {
-    "primCol": "#da532c",
-    "darkPrimCol": "#8D2B0E",
-    "lightPrimCol": "#FF754D",
-    "accentCol": "#2CDAA9",
-    "tag": "metro"
-  },
-  {
-    "primCol": "#ee1111",
-    "darkPrimCol": "#A10606",
-    "lightPrimCol": "#FF2C2C",
-    "accentCol": "#11EE50",
-    "tag": "metro"
   },
   {
     "primCol": "#EF4836",
