@@ -330,13 +330,21 @@ cardsOnclickListener();
 
 // target the custom color scheme card and Functionality
 var customCard = document.getElementsByClassName("cardwrapper")[0];
-customCard.children[0].classList.add("testcard");
-customCard.children[0].children[0].id = "testtopwrapper";
-customCard.children[0].children[0].children[0].classList.remove("tag");
-customCard.children[0].children[0].children[0].classList.add("cardtitle");
-customCard.children[0].children[0].removeChild(document.getElementsByClassName("upvote")[0]);
+  customCard.children[0].classList.add("testcard");
+  customCard.children[0].children[0].id = "testtopwrapper";
+  customCard.children[0].children[0].children[0].classList.remove("tag");
+  customCard.children[0].children[0].children[0].classList.add("cardtitle");
+  customCard.children[0].children[0].removeChild(document.getElementsByClassName("upvote")[0]);
+  var configureDiv = document.createElement('div');
+  var configureSpan = document.createElement('span');
+  var configureText = document.createElement('p');
+  configureText.appendChild(document.createTextNode("Click to configure"));
+  configureSpan.classList.add("icon-palette");
+  configureDiv.classList.add("colscheme-configurelogo");
+  configureDiv.appendChild(configureText);
+  configureDiv.appendChild(configureSpan);
+  customCard.children[0].children[1].appendChild(configureDiv);
 
-console.log();
 
 
 // ========================================== /Palette Cards ===============================================================
@@ -481,3 +489,150 @@ importFontBtn.onclick = function(event){
   var fontInput = document.getElementById("font").value;
   addGoogleFont(fontInput);
 }
+
+// CUSTOM COLOR SCHEME BUTTON MODAL
+var customCard = document.getElementsByClassName("testcard")[0];
+customCard.onclick =(function(event){
+  var modal = document.getElementsByClassName("modal")[1];
+  modal.style.display = "block";
+  fadeIn(modal);
+
+    document.getElementsByClassName("modal")[1].addEventListener("click", function () { // if user clicks anywhere that is not the button
+        document.getElementsByClassName("modal")[1].style.display = "none";
+    }, false);
+    document.getElementsByClassName("modalcontent-colscheme")[0].addEventListener("click", function (ev) {
+        ev.stopPropagation();
+    }, false);
+
+});
+
+
+
+
+// Color scheme picker functionality:
+// ccs = CUSTOM COLOR SCHEME
+// HOW IT WORKS:
+// ccsClickCount manages which click number it is, first click determines the primary color
+// second click determines the accent color, once ccsClickCount = 2, nothing happens
+// The repick button then resets ccsClickCount to 0
+var colorBoxes = document.getElementsByClassName("colbox");
+var ccsPrim = document.getElementsByClassName('colschemebox-lg')[0];
+var ccsAccent = document.getElementsByClassName('colschemebox-lg')[1];
+var ccsClickCount = 0;
+// repick button functionality:
+var repickBtn = document.getElementById("repickbtn");
+var saveCssBtn = document.getElementById("savecolschemebtn");
+
+function repickCCS(){
+  if(document.getElementById("colscheme-selected") != null){
+    if(document.getElementById("colscheme-selected").style.boxShadow != null){
+      document.getElementById("colscheme-selected").style.boxShadow = "";
+      document.getElementById("colscheme-selected2").style.boxShadow = "";
+      document.getElementById("colscheme-selected").removeAttribute("id");
+      document.getElementById("colscheme-selected2").removeAttribute("id");
+    }
+  }  
+  ccsClickCount = 0;
+}
+repickBtn.onclick = (function(event){
+  repickCCS();
+})
+saveCssBtn.onclick = (function(event){
+  previewColorChange(ccsPrim.style.backgroundColor,document.getElementsByClassName("colschemebox-sm")[0].style.backgroundColor, document.getElementsByClassName("colschemebox-sm")[1].style.backgroundColor, ccsAccent.style.backgroundColor);
+  document.getElementsByClassName("primarycolor")[0].style.backgroundColor = ccsPrim.style.backgroundColor;
+  document.getElementsByClassName("darkprimarycolor")[0].style.backgroundColor = document.getElementsByClassName("colschemebox-sm")[0].style.backgroundColor;
+  document.getElementsByClassName("lightprimarycolor")[0].style.backgroundColor = document.getElementsByClassName("colschemebox-sm")[1].style.backgroundColor;
+  document.getElementsByClassName("accentcolor")[0].style.backgroundColor = ccsAccent.style.backgroundColor;
+
+})
+
+//corresponding 700 & 300 colors due to googles strange naming convention
+var materialColors = [{
+    "prim": "#F44336",
+    "light": "#E57373",
+    "dark": "#D32F2F"
+  },{
+    "prim": "#E91E63",
+    "light": "#F06292",
+    "dark": "#C2185B"
+  },{
+    "prim": "#9C27B0",
+    "light": "#BA68C8",
+    "dark": "#7B1FA2"
+  },  {
+    "prim": "#673AB7",
+    "light": "#9575CD",
+    "dark": "#512DA8"
+  },  {
+    "prim": "#3F51B5",
+    "light": "#7986CB",
+    "dark": "#303F9F"
+  },  {
+    "prim": "#2196F3",
+    "light": "#64B5F6",
+    "dark": "#1976D2"
+  },  {
+    "prim": "#03A9F4",
+    "light": "#4FC3F7",
+    "dark": "#0288D1"
+  },  {
+    "prim": "#00BCD4",
+    "light": "#4DD0E1",
+    "dark": "#0097A7"
+  },  {
+    "prim": "#009688",
+    "light": "#4DB6AC",
+    "dark": "#00796B"
+  },  {
+    "prim": "#8BC34A",
+    "light": "#AED581",
+    "dark": "#689F38"
+  },  {
+    "prim": "#CDDC39",
+    "light": "#DCE775",
+    "dark": "#AFB42B"
+  },  {
+    "prim": "#FFEB3B",
+    "light": "#FFF176",
+    "dark": "#FBC02D"
+  },  {
+    "prim": "#FFC107",
+    "light": "#FFD54F",
+    "dark": "#FFA000"
+  },  {
+    "prim": "#FF9800",
+    "light": "#FFB74D",
+    "dark": "#F57C00"
+  },  {
+    "prim": "#FF5722",
+    "light": "#FF8A65",
+    "dark": "#E64A19"
+  }
+];
+
+for (var z=0; z<colorBoxes.length; z++){
+  colorBoxes[z].addEventListener('click', function(e) {
+    if (ccsClickCount ==0){
+      ccsPrim.style.backgroundColor = this.children[1].innerHTML;
+
+      for (var q=0;q<materialColors.length;q++){
+        if(materialColors[q].prim == this.children[1].innerHTML){
+          document.getElementsByClassName("colschemebox-sm")[0].style.backgroundColor = materialColors[q].dark;
+          document.getElementsByClassName("colschemebox-sm")[1].style.backgroundColor = materialColors[q].light;
+        }
+      };
+      this.id ="colscheme-selected";
+      this.style.boxShadow = "0 0 0 2px rgba(0,0,0,1) inset";
+      ccsClickCount ++;
+    } else if (ccsClickCount == 1) {
+      ccsAccent.style.backgroundColor = this.children[1].innerHTML;
+      this.id ="colscheme-selected2";
+      this.style.boxShadow = "0 0 0 2px rgba(0,0,0,1) inset";
+      ccsClickCount ++;
+    } else {
+      repickBtn.classList.add("shake-rotate");
+      setTimeout(function(){repickBtn.classList.remove("shake-rotate");}, 500);
+      repickCCS();
+    }
+  });
+};
