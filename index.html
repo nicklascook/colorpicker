@@ -62,19 +62,19 @@
               </div>
             </div>
             <div class="row presetrow">
-              <div class="presetwrapper">
+              <div class="presetwrapper" id="businesspreview">
                 <div class="presetlogo">
                   <span class="icon-office"></span>
                 </div>
                 <h4 class="presettext">BUSINESS</h4>
               </div>
-              <div class="presetwrapper">
+              <div class="presetwrapper" id="blogpreview">
                 <div class="presetlogo">
                   <span class="icon-type"></span>
                 </div>
                 <h4 class="presettext">BLOG</h4>
               </div>
-              <div class="presetwrapper">
+              <div class="presetwrapper" id="storepreview">
                 <div class="presetlogo">
                   <span class="icon-shopping-cart"></span>
                 </div>
@@ -91,11 +91,12 @@
           <div class="modalcontent-colscheme">
             <div class="row modaltitle">
               <h2>Custom Color Scheme Picker</h2>
+              <span class="icon-close"></span>
             </div>
             <div class="row">
               <div class="colschemeselect">
                 <h3>Pick any 2 colors from below</h3>
-                <button id="savecolschemebtn">Save</button>
+                <button id="savecolschemebtn">Preview</button>
                 <button id="repickbtn" class="">Repick</button>
               </div>
             </div>
@@ -146,82 +147,246 @@
           </div>
         </div>
 
-
-        <div class="preview">
-          <div class="row">
-            <a><h1>Sample Business</h1></a>
-            <div class="previewnav">
-              <a><h3 class="previewnav-active">Home</h3></a>
-              <a><h3>Services</h3></a>
-              <a><h3>Contact</h3></a>
-              <span class="icon-menu"></span>
-            </div>
-          </div>
-
-          <div class="row previewheader">
+        <div class="previewwrap">
+          <div class="preview">
             <div class="row">
-              <h1>Landing Page</h1>
-              <h2>A template by Colorpicker</h2>
-              <hr>
-              <button><span class="icon-facebook"></span> Facebook</button>
-              <button><span class="icon-twitter"></span> Twitter</button>
-              <button><span class="icon-instagram"></span> Instagram</button>
+              <a><h1>Sample Business</h1></a>
+              <div class="previewnav">
+                <a><h3 class="previewnav-active">Home</h3></a>
+                <a><h3>Services</h3></a>
+                <a><h3>Contact</h3></a>
+                <span class="icon-menu"></span>
+              </div>
             </div>
-          </div>
 
-          <div class="row previewbody">
-            <div class="col-8">
-              <h4>What We Do</h4>
-              <p>Introduce the visitor to the business using clear, informative text. Use <span class="highlight">well-targeted</span> keywords within your sentences to make sure search engines can find the business. <br><br>
-                 Design and layout inspired and partly copied from Startbootstrap. Images from Pexels. Original font is 'Lato' from Google Fonts.</p>
-              <div class="btnwrapper">
-                <button class="previewbtn">Call To Action!</button>
+            <div class="row previewheader">
+              <div class="row">
+                <h1>Landing Page</h1>
+                <h2>A template by Colorpicker</h2>
+                <hr>
+                <button><span class="icon-facebook"></span> Facebook</button>
+                <button><span class="icon-twitter"></span> Twitter</button>
+                <button><span class="icon-instagram"></span> Instagram</button>
+              </div>
+            </div>
+
+            <div class="row previewbody">
+              <div class="col-8">
+                <h4>What We Do</h4>
+                <p>Introduce the visitor to the business using clear, informative text. Use <span class="highlight">well-targeted</span> keywords within your sentences to make sure search engines can find the business. <br><br>
+                   Design and layout inspired and partly copied from Startbootstrap. Images from Pexels. Original font is 'Lato' from Google Fonts.</p>
+                <div class="btnwrapper">
+                  <button class="previewbtn">Call To Action!</button>
+                </div>
+
+              </div>
+              <div class="col-4">
+                <h4>Contact Us</h4>
+                <p>
+                  <ul> <strong class="highlight">Sample Business</strong>
+                    <li>762 Melvindoo Place</li>
+                    <li>Beverly Hills, CA 90210</li>
+                  </ul>
+                  <ul>
+                    <li><span class="icon-phone"></span>  (123) 456-7890</li>
+                    <li><span class="icon-mail_outline"></span>   name@example.com</li>
+                  </ul>
+                </p>
               </div>
 
             </div>
-            <div class="col-4">
-              <h4>Contact Us</h4>
-              <p>
-                <ul> <strong class="highlight">Sample Business</strong>
-                  <li>762 Melvindoo Place</li>
-                  <li>Beverly Hills, CA 90210</li>
-                </ul>
-                <ul>
-                  <li><span class="icon-phone"></span>  (123) 456-7890</li>
-                  <li><span class="icon-mail_outline"></span>   name@example.com</li>
-                </ul>
-              </p>
+            <hr style="width:80%; margin-top:50px;">
+            <div class="row previewcontent">
+              <div class="col-quarter">
+                <span class="icon-explore"></span>
+                <h2>Marketing Box #1</h2>
+                <p>These marketing boxes are a great place to put some information.</p>
+              </div>
+              <div class="col-quarter">
+                <span class="icon-filter_drama"></span>
+                <h2>Marketing Box #2</h2>
+                <p>These marketing boxes are a great place to put some information.</p>
+              </div>
+              <div class="col-quarter">
+                <span class="icon-local_florist"></span>
+                <h2>Marketing Box #3</h2>
+                <p>These marketing boxes are a great place to put some information.</p>
+              </div>
+              <div class="col-quarter">
+                <span class="icon-trending_up"></span>
+                <h2>Marketing Box #4</h2>
+                <p>These marketing boxes are a great place to put some information.</p>
+              </div>
+            </div>
+            <hr style="width:80%; margin-top:50px;">
+            <div class="row previewfooter">
+              <p>Copyright (c) 2016 Copyright Holder All Rights Reserved.</p>
+            </div>
+          </div>
+          <!-- Preview 1 - Business Site End -->
+        </div>
+
+<!-- Start Blog preview -->
+        <div class="blogpreview">
+            <div class="row blogheader">
+              <div class="headerwrap">
+                <h2>Tech & Stuff.</h2>
+              </div>
+              <h3>login</h3>
+              <h3>signup</h3>
+            </div>
+            <div class="row blognav">
+              <div class="navwrap">
+                <h3>Gadgets</h3>
+                <h3>Technology</h3>
+                <h3>Business</h3>
+                <h3>Entertainment</h3>
+                <h3>Culture</h3>
+                <h3>Reviews</h3>
+              </div>
+              <div class="navwrap-icons">
+                <span class="icon-facebook"></span>
+                <span class="icon-instagram"></span>
+                <span class="icon-twitter"></span>
+              </div>
+            </div>
+            <div class="blogbody">
+              <div class="leftcol">
+                <h2>Latest:</h2>
+                <hr>
+                <div class="leftcol-story">
+                  <img src="img/leftcol-story-1.jpeg" alt="computer-set-up">
+                  <h3>The Apple Ecosystem</h3>
+                  <h4><span class="icon-schedule"></span> 4h ago</h4>
+                </div>
+                <div class="leftcol-story">
+                  <img src="img/leftcol-story-2.jpeg" alt="computer-set-up">
+                  <h3>Drones For Charity</h3>
+                  <h4><span class="icon-schedule"></span> 16h ago</h4>
+                </div>
+                <div class="leftcol-story">
+                  <img src="img/leftcol-story-3.jpeg" alt="computer-set-up">
+                  <h3>Mobile Banking Risks</h3>
+                  <h4><span class="icon-schedule"></span> 3d ago</h4>
+                </div>
+              </div>
+              <div class="centrecol">
+                <div class="mainstory">
+                  <img src="img/centrecol-story-1.jpeg" alt="Light trails on road">
+                  <h1>Future of Roads: Technology, Laws and Infrastructure</h1>
+                  <h3>The full comparison and futurology</h3>
+                  <h4>Culture</h4>
+                  <hr>
+                </div>
+                <div class="secondarystory">
+                  <img src="img/centrecol-story-2.jpeg" alt="Ipad, glasses and pen">
+                  <h2>The Modern Workflow</h2>
+                  <h4>Technology</h4>
+                </div>
+                <div class="secondarystory">
+                  <img src="img/centrecol-story-3.jpg" alt="Ipad, glasses and pen">
+                  <h2>Snapdragon 835</h2>
+                  <h4>Technology</h4>
+                </div>
+              </div>
+              <div class="rightcol">
+                <h3>News</h3>
+                <hr>
+                <div class="newsstory">
+                  <h4>Amazon is teaching Alexa to distinguish different voices</h4>
+                  <h5 class="categorytext">Gadgets</h5>
+                  <h5><span class="icon-schedule"></span> 1h ago</h5>
+                  <hr>
+                </div>
+                <div class="newsstory">
+                  <h4>SpaceX is sending two private citizens around the moon in 2018</h4>
+                  <h5 class="categorytext">Technology</h5>
+                  <h5><span class="icon-schedule"></span> 3h ago</h5>
+                  <hr>
+                </div>
+                <div class="newsstory">
+                  <h4>Pilot whose drone knocked a woman unconscious gets 30 days in jail</h4>
+                  <h5 class="categorytext">Culture</h5>
+                  <h5><span class="icon-schedule"></span> 4h ago</h5>
+                  <hr>
+                </div>
+                <div class="newsstory">
+                  <h4>Rise in Arctic Ocean acid pinned on climate change</h4>
+                  <h5 class="categorytext">Culture</h5>
+                  <h5><span class="icon-schedule"></span> 5h ago</h5>
+                  <hr>
+                </div>
+                <div class="newsstory">
+                  <h4>Finance Department spends thousands on 'excruciating' recruitment video</h4>
+                  <h5 class="categorytext">Culture</h5>
+                  <h5><span class="icon-schedule"></span> 8h ago</h5>
+                  <hr>
+                </div>
+              </div>
             </div>
 
-          </div>
-          <hr style="width:80%; margin-top:50px;">
-          <div class="row previewcontent">
-            <div class="col-quarter">
-              <span class="icon-explore"></span>
-              <h2>Marketing Box #1</h2>
-              <p>These marketing boxes are a great place to put some information.</p>
-            </div>
-            <div class="col-quarter">
-              <span class="icon-filter_drama"></span>
-              <h2>Marketing Box #2</h2>
-              <p>These marketing boxes are a great place to put some information.</p>
-            </div>
-            <div class="col-quarter">
-              <span class="icon-local_florist"></span>
-              <h2>Marketing Box #3</h2>
-              <p>These marketing boxes are a great place to put some information.</p>
-            </div>
-            <div class="col-quarter">
-              <span class="icon-trending_up"></span>
-              <h2>Marketing Box #4</h2>
-              <p>These marketing boxes are a great place to put some information.</p>
-            </div>
-          </div>
-          <hr style="width:80%; margin-top:50px;">
-          <div class="row previewfooter">
-            <p>Copyright (c) 2016 Copyright Holder All Rights Reserved.</p>
-          </div>
         </div>
+<!-- End Blog Preview -->
+        <div class="storepreview">
+          <div class="row store-topnav">
+            <div class="store-topnav-wrapper">
+              <h4>Men</h4>
+              <h4>Women</h4>
+              <h4>Kids</h4>
+            </div>
+          </div>
+          <div class="row store-nav">
+            <div class="store-nav-wrap">
+              <span class="icon-menu"></span>
+            </div>
+            <div class="store-nav-wrap">
+              <h1>STORE</h1>
+            </div>
+            <div class="store-nav-wrap">
+              <span class="icon-shopping-cart"></span>
+            </div>
+          </div>
+          <div class="row store-headerimg">
+            <h1>WINTER x SPRING 17.</h1>
+          </div>
+          <div class="row store-body">
+            <div class="store-grid">
+              <img src="img/store-body-grid1.jpeg" alt="">
+            </div>
+            <div class="store-grid">
+              <img src="img/store-body-grid2.jpeg" alt="">
+            </div>
+            <div class="store-grid">
+              <img src="img/store-body-grid3.jpeg" alt="">
+            </div>
+
+
+          </div>
+          <div class="row store-footer">
+            <div class="row">
+              <div class="store-socialmedia">
+
+                <h4>CONNECT</h4>
+                <span class="icon-instagram"></span>
+                <span class="icon-facebook"></span>
+                <span class="icon-twitter"></span>
+              </div>
+
+            </div>
+            <h3>About</h3>
+            <h3>Returns</h3>
+            <h3>Locations</h3>
+            <h3>Support</h3>
+            <h3>Blog</h3>
+
+          </div>
+
+        </div>
+
+
+
+
+
 
     </div>
     <script src="js/main.js"></script>

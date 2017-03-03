@@ -105,7 +105,7 @@ var paletteSchemes = [
     "darkPrimCol": "#fff",
     "lightPrimCol": "#fff",
     "accentCol": "#fff",
-    "tag": "custom color scheme"
+    "tag": "create new color scheme"
   },
   {
     "primCol": "#F44336",
@@ -317,16 +317,6 @@ function cardsOnclickListener(){
 cardsOnclickListener();
 
 
-// // hover animation for palette cards:
-// for (var k=0; k<cards.length; k++){
-//   cards[k].addEventListener('mouseover', function(e) {
-//     this.classList.add("cardhover");
-//   });
-//   cards[k].addEventListener('mouseout', function(e) {
-//     this.classList.remove("cardhover");
-//   });
-// };
-
 
 // target the custom color scheme card and Functionality
 var customCard = document.getElementsByClassName("cardwrapper")[0];
@@ -335,15 +325,6 @@ var customCard = document.getElementsByClassName("cardwrapper")[0];
   customCard.children[0].children[0].children[0].classList.remove("tag");
   customCard.children[0].children[0].children[0].classList.add("cardtitle");
   customCard.children[0].children[0].removeChild(document.getElementsByClassName("upvote")[0]);
-  var configureDiv = document.createElement('div');
-  var configureSpan = document.createElement('span');
-  var configureText = document.createElement('p');
-  configureText.appendChild(document.createTextNode("Click to configure"));
-  configureSpan.classList.add("icon-palette");
-  configureDiv.classList.add("colscheme-configurelogo");
-  configureDiv.appendChild(configureText);
-  configureDiv.appendChild(configureSpan);
-  customCard.children[0].children[1].appendChild(configureDiv);
 
 
 
@@ -433,6 +414,29 @@ previewBtn.onclick =(function(event){
 
 });
 
+//Change preview website functionality:
+//clicking on one option sets display:none for other 2,
+//Blog
+var blogBtn = document.getElementById("blogpreview");
+blogBtn.onclick = (function(event){
+  document.getElementsByClassName("blogpreview")[0].style.display = "block";
+  document.getElementsByClassName("preview")[0].style.display = "none";
+  document.getElementsByClassName("storepreview")[0].style.display = "none";
+});
+// Business
+var businessBtn = document.getElementById("businesspreview");
+businessBtn.onclick = (function(event){
+  document.getElementsByClassName("preview")[0].style.display = "block";
+  document.getElementsByClassName("blogpreview")[0].style.display = "none";
+  document.getElementsByClassName("storepreview")[0].style.display = "none";
+})
+// Store
+var storeBtn = document.getElementById("storepreview");
+storeBtn.onclick = (function(event){
+  document.getElementsByClassName("storepreview")[0].style.display = "block";
+  document.getElementsByClassName("blogpreview")[0].style.display = "none";
+  document.getElementsByClassName("preview")[0].style.display = "none";
+})
 
 // Load in Google Font:
 
@@ -503,6 +507,9 @@ customCard.onclick =(function(event){
     document.getElementsByClassName("modalcontent-colscheme")[0].addEventListener("click", function (ev) {
         ev.stopPropagation();
     }, false);
+    document.getElementsByClassName("icon-close")[0].addEventListener("click", function (ev) {
+      document.getElementsByClassName("modal")[1].style.display = "none";
+    },false);
 
 });
 
@@ -531,14 +538,16 @@ function repickCCS(){
       document.getElementById("colscheme-selected").removeAttribute("id");
       document.getElementById("colscheme-selected2").removeAttribute("id");
     }
-  }  
+  }
   ccsClickCount = 0;
 }
 repickBtn.onclick = (function(event){
   repickCCS();
 })
 saveCssBtn.onclick = (function(event){
+  //change the preview to match the selected colors
   previewColorChange(ccsPrim.style.backgroundColor,document.getElementsByClassName("colschemebox-sm")[0].style.backgroundColor, document.getElementsByClassName("colschemebox-sm")[1].style.backgroundColor, ccsAccent.style.backgroundColor);
+  // change the card to match the selected colors
   document.getElementsByClassName("primarycolor")[0].style.backgroundColor = ccsPrim.style.backgroundColor;
   document.getElementsByClassName("darkprimarycolor")[0].style.backgroundColor = document.getElementsByClassName("colschemebox-sm")[0].style.backgroundColor;
   document.getElementsByClassName("lightprimarycolor")[0].style.backgroundColor = document.getElementsByClassName("colschemebox-sm")[1].style.backgroundColor;
@@ -612,7 +621,12 @@ var materialColors = [{
 
 for (var z=0; z<colorBoxes.length; z++){
   colorBoxes[z].addEventListener('click', function(e) {
-    if (ccsClickCount ==0){
+    if (ccsClickCount ==0 || ccsClickCount ==2){
+      if (ccsClickCount ==2){
+        repickBtn.classList.add("shake-rotate");
+        setTimeout(function(){repickBtn.classList.remove("shake-rotate");}, 500);
+        repickCCS();
+      }
       ccsPrim.style.backgroundColor = this.children[1].innerHTML;
 
       for (var q=0;q<materialColors.length;q++){
@@ -630,9 +644,8 @@ for (var z=0; z<colorBoxes.length; z++){
       this.style.boxShadow = "0 0 0 2px rgba(0,0,0,1) inset";
       ccsClickCount ++;
     } else {
-      repickBtn.classList.add("shake-rotate");
-      setTimeout(function(){repickBtn.classList.remove("shake-rotate");}, 500);
-      repickCCS();
+
+
     }
   });
 };
