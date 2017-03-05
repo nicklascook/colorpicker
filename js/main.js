@@ -334,7 +334,40 @@ var customCard = document.getElementsByClassName("cardwrapper")[0];
 
 // palette card onclick function -> returns an array of the object's colors -> function that takes 4 colors and injects them onto the preview page
 
+// set up the displays so that javascript can recognise them
+document.getElementsByClassName("preview")[0].style.display = "none";
+document.getElementsByClassName("blogpreview")[0].style.display = "block";
+document.getElementsByClassName("storepreview")[0].style.display = "none";
+
+// store the currently active color scheme so that it remains the same when changing sites
+var currentlyActiveColors = {
+  "prim": "#03A9F4",
+  "dark": "#0288D1",
+  "light": "#4FC3F7",
+  "accent": "#7C4DFF"
+}
+
 function previewColorChange(prim, dark, light, accent){ // Changes the color scheme of the preview website from the colors given
+  // how it works: checks which preview site is currently loaded, runs function that relates to that site with the colors given
+
+  // check which page is currently loaded
+  if(document.getElementsByClassName("preview")[0].style.display == "block"){
+    businessPreviewColorInject(prim, dark, light, accent);
+  } else if (document.getElementsByClassName("blogpreview")[0].style.display == "block") {
+    blogPreviewColorInject(prim, dark, light, accent);
+  } else if (document.getElementsByClassName("storepreview")[0].style.display == "block") {
+    storePreviewColorInject(prim, dark, light, accent);
+  }
+
+  // update the currently active colors object
+  currentlyActiveColors.prim = prim;
+  currentlyActiveColors.dark = dark;
+  currentlyActiveColors.light = light;
+  currentlyActiveColors.accent = accent;
+
+
+}
+function businessPreviewColorInject(prim, dark, light, accent){
   var preview = document.getElementsByClassName("preview")[0];
   // top header bgc and border
   preview.style.backgroundColor = prim;
@@ -370,14 +403,147 @@ function previewColorChange(prim, dark, light, accent){ // Changes the color sch
     preview.children[4].children[i].children[0].style.color = dark;
   };
 }
+function blogPreviewColorInject(prim, dark, light, accent){
+  var preview = document.getElementsByClassName("blogpreview")[0];
+  // header
+  preview.children[0].children[0].children[0].style.color = dark;
+  preview.children[0].children[0].children[0].onmouseover = function(){
+    this.style.color= light;
+  }
+  preview.children[0].children[0].children[0].onmouseout = function(){
+    this.style.color= dark;
+  }
+  // nav
+  preview.children[1].style.backgroundColor = prim;
 
+  //left col --------
+  preview.children[2].children[0].children[1].style.borderColor = accent;
+    // first story
+  preview.children[2].children[0].children[2].onmouseover=function(){
+    this.children[1].style.color = prim;
+  }
+  preview.children[2].children[0].children[2].onmouseout=function(){
+    this.children[1].style.color = "black";
+  }
+    // second story
+    preview.children[2].children[0].children[3].onmouseover=function(){
+      this.children[1].style.color = prim;
+    }
+    preview.children[2].children[0].children[3].onmouseout=function(){
+      this.children[1].style.color = "black";
+    }
+    // third story
+    preview.children[2].children[0].children[4].onmouseover=function(){
+      this.children[1].style.color = prim;
+    }
+    preview.children[2].children[0].children[4].onmouseout=function(){
+      this.children[1].style.color = "black";
+    }
+    preview.children[2].children[1].children[0].children[3].style.color = accent;
+    preview.children[2].children[1].children[0].children[4].style.borderColor = accent;
+
+  //centre col ----------
+    //main story
+  preview.children[2].children[1].children[0].onmouseover = function(){
+    this.children[1].style.color = prim;
+  }
+  preview.children[2].children[1].children[0].onmouseout = function(){
+    this.children[1].style.color = "black";
+  }
+  preview.children[2].children[1].children[0]
+
+    //secondary story 1
+  preview.children[2].children[1].children[1].onmouseover = function(){
+    this.children[1].style.color = prim;
+  }
+  preview.children[2].children[1].children[1].onmouseout = function(){
+    this.children[1].style.color = "black";
+  }
+  preview.children[2].children[1].children[1].children[2].style.color = accent;
+
+    //secondary story 2
+  preview.children[2].children[1].children[2].onmouseover = function(){
+    this.children[1].style.color = prim;
+  }
+  preview.children[2].children[1].children[2].onmouseout = function(){
+    this.children[1].style.color = "black";
+  }
+  preview.children[2].children[1].children[2].children[2].style.color = accent;
+
+  //right col ------------
+  preview.children[2].children[2].children[1].style.borderColor = accent;
+    //target every newsstory
+    var newsStory =   document.getElementsByClassName("newsstory");
+    for (var i=0; i<newsStory.length;i++){
+      //change hover behaviour
+      newsStory[i].children[0].onmouseover = function(){
+        this.style.color = prim;
+      };
+      newsStory[i].children[0].onmouseout = function(){
+        this.style.color = "black";
+      }
+      // change accent text
+      newsStory[i].children[1].style.color = accent;
+      //change hr
+      newsStory[i].children[3].style.borderColor = accent;
+    }
+}
+function storePreviewColorInject(prim, dark, light, accent){
+  var preview = document.getElementsByClassName("storepreview")[0];
+  // top nav
+  preview.children[0].style.backgroundColor = prim;
+  // top header
+  preview.children[1].style.backgroundColor = prim;
+  // style feed
+  var styleFeed = document.getElementsByClassName("store-stylefeed-grid");
+  for(var i=0; i<styleFeed.length;i++){
+      styleFeed[i].children[1].style.color = light;
+  }
+  // store-body
+  var storeGrid = document.getElementsByClassName("store-grid");
+  for(var i=0; i<storeGrid.length;i++){
+    storeGrid[i].onmouseover = function(){
+      this.children[0].style.borderColor = accent;
+      this.children[1].style.color = accent;
+    }
+    storeGrid[i].onmouseout = function(){
+      this.children[0].style.borderColor = "black";
+      this.children[1].style.color = "black";
+    }}
+  // store footer
+  preview.children[4].style.backgroundColor = prim;
+  var socialMediaIcons = preview.children[4].children[0].children[0].children;
+  socialMediaIcons[1].onmouseover = function(){
+    this.style.color = accent;
+  }
+  socialMediaIcons[1].onmouseout = function(){
+    this.style.color = "black";
+  }
+  socialMediaIcons[2].onmouseover = function(){
+    this.style.color = accent;
+  }
+  socialMediaIcons[2].onmouseout = function(){
+    this.style.color = "black";
+  }
+  socialMediaIcons[3].onmouseover = function(){
+    this.style.color = accent;
+  }
+  socialMediaIcons[3].onmouseout = function(){
+    this.style.color = "black";
+  }
+  for(var i =1; i<6;i++){
+    preview.children[4].children[i].onmouseover = function(){
+      this.style.color = accent;
+    }
+    preview.children[4].children[i].onmouseout = function(){
+      this.style.color = "black";
+    }
+  }
+
+}
 
 
 // ========================================== /PREVIEW PAGE ===============================================================
-
-
-
-// #00 00 ff = rgb(0,0,255) ratio of x,y,z to establish dominant warm / cold / dark
 
 // removes all current cards and only shows cards that have the same tag as the filter variable
 function reloadCardsFiltered(filter){
@@ -416,12 +582,14 @@ previewBtn.onclick =(function(event){
 
 //Change preview website functionality:
 //clicking on one option sets display:none for other 2,
+// also uses the currentlyActiveColors object to keep the color scheme
 //Blog
 var blogBtn = document.getElementById("blogpreview");
 blogBtn.onclick = (function(event){
   document.getElementsByClassName("blogpreview")[0].style.display = "block";
   document.getElementsByClassName("preview")[0].style.display = "none";
   document.getElementsByClassName("storepreview")[0].style.display = "none";
+  previewColorChange(currentlyActiveColors.prim, currentlyActiveColors.dark, currentlyActiveColors.light, currentlyActiveColors.accent);
 });
 // Business
 var businessBtn = document.getElementById("businesspreview");
@@ -429,6 +597,7 @@ businessBtn.onclick = (function(event){
   document.getElementsByClassName("preview")[0].style.display = "block";
   document.getElementsByClassName("blogpreview")[0].style.display = "none";
   document.getElementsByClassName("storepreview")[0].style.display = "none";
+  previewColorChange(currentlyActiveColors.prim, currentlyActiveColors.dark, currentlyActiveColors.light, currentlyActiveColors.accent);
 })
 // Store
 var storeBtn = document.getElementById("storepreview");
@@ -436,6 +605,7 @@ storeBtn.onclick = (function(event){
   document.getElementsByClassName("storepreview")[0].style.display = "block";
   document.getElementsByClassName("blogpreview")[0].style.display = "none";
   document.getElementsByClassName("preview")[0].style.display = "none";
+  previewColorChange(currentlyActiveColors.prim, currentlyActiveColors.dark, currentlyActiveColors.light, currentlyActiveColors.accent);
 })
 
 // Load in Google Font:

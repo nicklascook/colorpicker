@@ -319,26 +319,21 @@ ul {
   }
 
 } // CARD ROW END
-// 19B5FE
-$previewPrim: rgb(180, 54, 54);
-$previewDprim: darken($previewPrim,10%);
-$previewLprim: lighten($previewPrim,5%);
-$previewAccent: #fff;
 
 
 
 .preview{
-  display: none;
   font-family: 'Lato', sans-serif;
   @extend .headerbox;
-  background-color: $previewPrim;
-  border-color: $previewDprim;
+  background-color: $primaryColor;
+  border-color: $darkPrimaryColor;
   height: 80px;
   margin-top: 0px;
   display: relative;
 
+
   h1{
-    color: $previewAccent;
+    color: white;
     padding: 0;
     float: left;
     margin-left: 40px;
@@ -370,7 +365,7 @@ $previewAccent: #fff;
       };
     }
     .previewnav-active{
-      color: darken($previewDprim, 10%);
+      color: darken($darkPrimaryColor, 10%);
       }
     a{
       @include bp-sm{
@@ -383,8 +378,9 @@ $previewAccent: #fff;
   h3{
     margin-left: 30px;
     display: inline;
-    color: $previewAccent;
+    color: white;
   }
+
 
   .previewheader{
     background-image: url("../img/sampleheaderimg");
@@ -399,7 +395,7 @@ $previewAccent: #fff;
       text-align: center;
 
       h1{
-      color: $previewLprim;
+      color: $lightPrimaryColor;
       text-shadow: -1px 0 black,0 1px black,1px 0 black,0 -1px black;
       width: 100%;
       margin-left: 0;
@@ -424,7 +420,7 @@ $previewAccent: #fff;
         border: none;
         height: 25px;
         span{
-          color: $previewLprim;
+          color: $lightPrimaryColor;
         }
       }
       button:hover{
@@ -441,7 +437,7 @@ $previewAccent: #fff;
 
     }
     span.highlight{
-      color: $previewPrim;
+      color: $primaryColor;
     }
     hr{
       margin-bottom: -10px;
@@ -473,12 +469,12 @@ $previewAccent: #fff;
         width: 150px;
         background-color: #fff;
         height: 30px;
-        border: 1px solid $previewPrim;
-        color: $previewDprim;
+        border: 1px solid $primaryColor;
+        color: $darkPrimaryColor;
       }
       button:hover, button:focus{
         color: #fff;
-        background-color: $previewPrim;
+        background-color: $primaryColor;
       }
     }
     .col-4{
@@ -496,10 +492,10 @@ $previewAccent: #fff;
       }
       strong.highlight{
         margin-top: -10px;
-        color: $previewDprim;
+        color: $darkPrimaryColor;
       }
       li span{
-        color: $previewDprim;
+        color: $darkPrimaryColor;
       }
     }
   }
@@ -524,7 +520,7 @@ $previewAccent: #fff;
       }
       span{
         font-size: 5em;
-        color: $previewDprim;
+        color: $darkPrimaryColor;
         @include bp-sm{
           font-size: 3em;
         }
@@ -550,10 +546,8 @@ $previewAccent: #fff;
 }
 
 .testcard:hover{
+  @include linearGradient(lighten($darkPrimaryColor,20%), lighten($accentColor,30%));
 
-  .primarycolor, .darkprimarycolor, .lightprimarycolor, .accentcolor{
-    @include linearGradient($accentColor, lighten($lightPrimaryColor,25%));
-  }
 }
 .testcard{
   .cardtitle{
@@ -690,6 +684,7 @@ $previewAccent: #fff;
   display: box;
 
   .presetwrapper{
+    cursor: pointer;
     width: 30%;
     height: 200px;
 
@@ -942,7 +937,6 @@ $previewAccent: #fff;
 
 
 .blogpreview{
-  display: none;
   font-family: 'Lato', sans-serif;
   .blogheader{
     .headerwrap{
@@ -985,7 +979,7 @@ $previewAccent: #fff;
         margin-left: 40px;
       }
       h3:hover{
-        color: darken($darkPrimaryColor, 15%);
+        color: black;
       }
     }
     .navwrap-icons{
@@ -999,7 +993,7 @@ $previewAccent: #fff;
         color: white;
       }
       span:hover{
-        color: $accentColor;
+        color: black;
       }
     }
   }
@@ -1176,59 +1170,94 @@ $previewAccent: #fff;
 
     }
   }
-  .store-headerimg{
-    background-image: url("../img/storepreview-img1.jpeg");
-    background-repeat: no-repeat;
-    background-position:  bottom;
-    background-size:  cover;
-    height: 400px;
-    width: 100%;
+  .store-stylefeed{
+    width: 80%;
+    margin: 0 auto;
     text-align: center;
-    border-bottom: 2px solid $accentColor;
-    h1{
-      color: $accentColor;
-      vertical-align: center;;
-      line-height: 400px;
-      margin: 0;
+    h2{
       font-size: 3em;
-      text-shadow: -1px 0 white,0 1px white,1px 0 white,0 -1px white;
-      }
-    h1:hover{
-      cursor: pointer;
-      color: white;
-      text-shadow: -1px 0 $darkPrimaryColor,0 1px $darkPrimaryColor,1px 0 $darkPrimaryColor,0 -1px $darkPrimaryColor;
     }
+    h3{
+      margin-top: -20px;
+      margin-bottom: 30px;
+    }
+    .store-stylefeed-grid{
+      width: 33%;
+      float: left;
+      height: 280px;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+      h3{
+        color: $lightPrimaryColor;
+        font-size: 1.4em;
+        text-transform: uppercase;
+        margin-top: -40px;
+        text-shadow: -1px 0 grey,0 1px grey,1px 0 grey,0 -1px grey;
+      }
 
     }
+    .store-stylefeed-grid:hover{
+      cursor: pointer;
+      h3{
+        color: white;
+        text-shadow: -1px 0 rgba(255, 255, 255, 0.64),0 1px ,1px 0 ,0 -1px rgba(255, 255, 255, 0.64);
+      }
+    }
+  }
 
     .store-body{
       hr{
         margin-top: 50px;
       }
-      .store-grid{
-        width: 30%;
-        padding: 1.66666667%;
-        float: left;
-        height: 320px;
-        margin-bottom: 50px;
+      h2{
         margin-top: 50px;
-        img{
-          border: 1px solid rgba(167, 167, 167, 0.7);
-          width: 100%;
-          height: 100%;
+        text-align: center;
+      }
+
+      .store-grid-wrapper{
+        width: 60%;
+        margin: 0 auto;
+        text-align: center;
+
+
+        .store-grid{
+          width: 30%;
+          padding: 1.66666667%;
+          float: left;
+          height: 200px;
+          margin-bottom: 100px;
+          img{
+            border: 1px solid rgba(167, 167, 167, 0.7);
+            width: 100%;
+            height: 100%;
+          }
+          h3{
+            font-size: 1em;
+            text-transform: uppercase;
+          }
+
         }
-        img:hover{
+        .store-grid:hover{
           cursor: pointer;
-          border: 1px solid $accentColor;
+          img{
+            border: 1px solid $accentColor;
+          }
+          h3{
+            color: $accentColor;
+          }
+
         }
       }
+
 
     }
     .store-footer{
       border-top: 2px solid $accentColor;
       background-color: $primaryColor;
-      padding-top: 30px;
-      padding-bottom: 30px;
+      padding-top: 0px;
+      padding-bottom: 40px;
       text-align: center;
       .store-socialmedia{
         text-align: center;
